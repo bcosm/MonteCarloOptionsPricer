@@ -1,0 +1,35 @@
+# Build artifacts
+build/
+*.o
+*.exe
+*.dll
+*.so
+*.dylib
+
+# IDE files
+.vscode/
+.vs/
+*.vcxproj.user
+*.sln.docstates
+
+# Neural network checkpoints and models
+checkpoints/
+*.pt
+*.pth
+models/
+*.ckpt
+
+# Data files
+*.csv
+data/
+
+# Temporary files
+*.tmp
+*.log
+*.swp
+*.swo
+*~
+
+# OS files
+.DS_Store
+Thumbs.db
