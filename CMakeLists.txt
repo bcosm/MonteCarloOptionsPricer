@@ -10,6 +10,17 @@ find_package(OpenMP)
 
 # Include directories
 include_directories(include)
+include_directories(src/core)
+include_directories(src/models)
+
+# Source files
+file(GLOB_RECURSE SOURCES 
+    "src/core/*.cpp"
+    "src/models/*.cpp"
+)
+
+# Create executable
+add_executable(MonteCarloOptionsPricer ${SOURCES})
 
 # Compiler flags
 if(OpenMP_CXX_FOUND)
