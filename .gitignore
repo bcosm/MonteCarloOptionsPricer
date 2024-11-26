@@ -16,7 +16,7 @@ build/
 checkpoints/
 *.pt
 *.pth
-models/
+trained_models/
 *.ckpt
 
 # Data files
