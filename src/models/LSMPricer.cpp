@@ -61,8 +61,11 @@ double LSM::PredictOptionPrice(
             Eigen::MatrixXd A(itmIndices.size(), polyOrder + 1);
             Eigen::VectorXd b(itmIndices.size());
 
-            for (size_t k = 0; k <= itmIndices.size(); ++k) {
+            for (size_t k = 0; k < itmIndices.size(); ++k) {
                 int i = itmIndices[k];
+                if (i >= N || i < 0) {
+                    throw std::runtime_error("LSM: Invalid path index in regression");
+                }
                 double discVal = Values[i][j + 1] * std::exp(-r * dt);
                 b(k) = discVal;
 
