@@ -32,3 +32,10 @@ target_link_libraries(MonteCarloOptionsPricer "${TORCH_LIBRARIES}")
 
 # Set properties
 set_property(TARGET MonteCarloOptionsPricer PROPERTY CXX_STANDARD 17)
+
+# Enable testing
+enable_testing()
+
+# Add basic test
+add_test(NAME basic_functionality 
+         COMMAND MonteCarloOptionsPricer)
