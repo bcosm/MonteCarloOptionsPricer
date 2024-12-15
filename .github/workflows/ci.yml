@@ -1,0 +1,39 @@
+name: CI
+
+on:
+  push:
+    branches: [ master ]
+  pull_request:
+    branches: [ master ]
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    
+    steps:
+    - uses: actions/checkout@v3
+    
+    - name: Install dependencies
+      run: |
+        sudo apt-get update
+        sudo apt-get install -y cmake build-essential libomp-dev
+        
+    - name: Download LibTorch
+      run: |
+        wget https://download.pytorch.org/libtorch/cpu/libtorch-cxx11-abi-shared-with-deps-1.12.1%2Bcpu.zip
+        unzip libtorch-cxx11-abi-shared-with-deps-1.12.1+cpu.zip
+        
+    - name: Configure CMake
+      run: |
+        mkdir build && cd build
+        cmake .. -DCMAKE_PREFIX_PATH=../libtorch
+        
+    - name: Build
+      run: |
+        cd build
+        make -j2
+        
+    - name: Test
+      run: |
+        cd build
+        ctest --output-on-failure
