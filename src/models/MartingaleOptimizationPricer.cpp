@@ -31,6 +31,9 @@ double MartingaleOptimization::PredictOptionPrice(
     if (pricePaths.empty() || pricePaths[0].empty()) {
         throw std::runtime_error("MartingaleOptimization: Empty pricePaths.");
     }
+    if (maxIterations <= 0) {
+        throw std::runtime_error("MartingaleOptimization: maxIterations must be positive.");
+    }
 
     pPaths_      = &pricePaths;
     r_           = r;

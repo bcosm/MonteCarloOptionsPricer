@@ -25,6 +25,9 @@ double BranchingProcesses::PredictOptionPrice(
     if (exerciseTimes.empty()) {
         throw std::runtime_error("BranchingProcesses: No exercise times.");
     }
+    if (strike <= 0.0) {
+        throw std::runtime_error("BranchingProcesses: Strike must be positive.");
+    }
 
     this->maturity_ = maturity;
 

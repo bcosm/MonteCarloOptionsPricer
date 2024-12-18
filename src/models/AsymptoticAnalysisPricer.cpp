@@ -48,6 +48,9 @@ double AsymptoticAnalysis::PredictOptionPrice(
     if (pricePaths.empty() || pricePaths[0].empty()) {
         return 0.0;
     }
+    if (sigma <= 0.0) {
+        throw std::runtime_error("AsymptoticAnalysis: Volatility must be positive.");
+    }
 
     int N = static_cast<int>(pricePaths.size());
     int M = static_cast<int>(pricePaths[0].size());
