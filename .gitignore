@@ -11,7 +11,7 @@ build/
 .vs/
 *.vcxproj.user
 *.sln.docstates
-
+.history/
 # Neural network checkpoints and models
 checkpoints/
 *.pt

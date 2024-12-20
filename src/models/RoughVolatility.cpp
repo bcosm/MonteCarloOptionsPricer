@@ -1,6 +1,6 @@
 // Rough volatility model using fractional Brownian motion for price path generation
 
-#include "RoughVolatility.h"
+#include "../../include/models/RoughVolatility.h"
 #include <iostream>
 #include <vector>
 #include <cmath>

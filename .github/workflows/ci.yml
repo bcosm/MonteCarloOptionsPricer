@@ -16,17 +16,30 @@ jobs:
     - name: Install dependencies
       run: |
         sudo apt-get update
-        sudo apt-get install -y cmake build-essential libomp-dev
+        sudo apt-get install -y cmake build-essential libomp-dev libeigen3-dev
         
     - name: Download LibTorch
       run: |
-        wget https://download.pytorch.org/libtorch/cpu/libtorch-cxx11-abi-shared-with-deps-1.12.1%2Bcpu.zip
-        unzip libtorch-cxx11-abi-shared-with-deps-1.12.1+cpu.zip
+        echo "Downloading LibTorch..."
+        wget --no-check-certificate https://download.pytorch.org/libtorch/cpu/libtorch-cxx11-abi-shared-with-deps-2.1.0%2Bcpu.zip -O libtorch.zip
+        echo "Download completed. File size:"
+        ls -lh libtorch.zip
+        echo "Extracting LibTorch..."
+        unzip -q libtorch.zip
+        echo "Extraction completed. Contents:"
+        ls -la  # Debug: list contents to verify extraction
+        echo "LibTorch directory structure:"
+        ls -la libtorch/
         
     - name: Configure CMake
       run: |
+        echo "Current directory: $PWD"
+        echo "LibTorch location:"
+        ls -la libtorch/
+        echo "Setting up build directory..."
         mkdir build && cd build
-        cmake .. -DCMAKE_PREFIX_PATH=../libtorch
+        echo "Running CMake with LibTorch path: $PWD/../libtorch"
+        cmake .. -DCMAKE_PREFIX_PATH=$PWD/../libtorch -DCMAKE_BUILD_TYPE=Release
         
     - name: Build
       run: |
