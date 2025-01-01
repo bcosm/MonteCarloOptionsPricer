@@ -1,6 +1,6 @@
-# Advanced Hybrid Monte Carlo Options Pricer
+# Hybrid Monte Carlo Options Pricer
 
-This repository contains an **advanced Monte Carlo–based options pricer** that implements multiple American-style option pricing methods under **rough volatility** dynamics. The goal is to compare and combine various algorithmic techniques for accurate pricing under realistic market conditions. This project also integrates a **Bayesian Neural Network** for post-processing or meta-modeling the generated paths and prices.
+This repository contains an Monte Carlo–based options pricer that implements multiple American-style option pricing methods under rough volatility dynamics. The goal is to compare and combine various algorithmic techniques for accurate pricing under realistic market conditions. This project also integrates a Bayesian Neural Network for post-processing or meta-modeling the generated paths and prices.
 
 ---
 
@@ -46,7 +46,7 @@ These methods are guided by techniques outlined in the work of **Keller, etc.**,
 
 ## Bayesian Neural Network
 
-A Torch-based **Bayesian Meta Model** is included:
+A Torch-based Bayesian Meta Model is included:
 
 - **MetaModeling:** Predicts final option prices or adjustments using MC Dropout for uncertainty estimation.  
 - **Multiple Forward Passes:** Helps quantify the prediction variance around the option prices.  
@@ -56,7 +56,7 @@ A Torch-based **Bayesian Meta Model** is included:
 
 ## Rough Volatility Model
 
-The **Rough Volatility** approach:
+The Rough Volatility approach:
 - **Fractional Gaussian Noise:** Captures long-memory effects of volatility (commonly observed in market data).  
 - **FFT Techniques:** Speeds up fractional Brownian motion generation (rBergomi style).  
 - **Parameter Estimation:** Automatically estimates Hurst exponent, volatility of volatility, and correlation from historical data.
