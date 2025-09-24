@@ -1,6 +1,6 @@
 # Hybrid Monte Carlo Options Pricer
 
-[![CI](https://github.com/bcosm/MonteCarloOptionsPricer-new/actions/workflows/ci.yml/badge.svg)](https://github.com/bcosm/MonteCarloOptionsPricer-new/actions/workflows/ci.yml)
+[![CI](https://github.com/bcosm/MonteCarloOptionsPricer/actions/workflows/ci.yml/badge.svg)](https://github.com/bcosm/MonteCarloOptionsPricer/actions/workflows/ci.yml)
 
 This repository contains an Monte Carlo–based options pricer that implements multiple American-style option pricing methods under rough volatility dynamics. The goal is to compare and combine various algorithmic techniques for accurate pricing under realistic market conditions. This project also integrates a Bayesian Neural Network for post-processing or meta-modeling the generated paths and prices.
 
